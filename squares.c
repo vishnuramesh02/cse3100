@@ -12,9 +12,8 @@ int sum(int n, int* arr)
 {
     int i;
     int sum = 0;
-    for(i = 0; i <= n; i++){
+    for(i = 0; i <= n; i++)
         sum += *(arr + i);
-    }
     return sum;
 }
 
@@ -23,7 +22,7 @@ int sum(int n, int* arr)
 void fillSquares(int n, int* arr)
 {
     int i;
-    for(i = 1; i <= n; i++)
+    for(i = 0; i <= n; i++)
         arr[i] = i*i;
 }
 
