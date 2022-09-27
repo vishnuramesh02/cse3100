@@ -15,34 +15,19 @@ void my_error(char *s)
  */
 char *my_strcat(char *s1, char *s2)
 {
-    int len1 = 0;
-    int len2 = 0;
-    while (s1[len1] != '\0') {
-      len1++;
-    }
-    while (s2 {len2} != '\0') {
-      len2++;
-    }
-    char *result = malloc(len1 + len2 + 1);
-    if (result == NULL){
-      my_error ('malloc');
-    }
-    for (int i = 0; i < len1; i++){
-      result[i] = s1[i];
-    }
-    for (int i = 0; i < len2; i++){
-      result[len1 + i] = s2[i];
-    }
-    result[len1 +len2] = '\0';
-    free(s1);
-    return result;
-  
-    
+ char *result = malloc(strlen(s1) + strlen(s2) + 1);
+ if (result == NULL){
+     my_error("malloc");
+ }
+ strcpy(result, s1);
+ strcat(result, s2);
+ return result;
+ free(s1);
 }
 
 int main(int argc, char *argv[])
 {
-    char    *s;
+    char *s;
 
     s = my_strcat("", argv[0]);
 
