@@ -113,7 +113,8 @@ node *delete_node(node *head, int v) {
       temp = temp->next;    
   }
   if (temp == NULL){
-      error_message(ERR_NODELETE);
+      error_message(ERR_NOTFOUND);
+      return head;
   }
   else if (temp == head){
       head = head->next;
