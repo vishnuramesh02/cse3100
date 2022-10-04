@@ -123,7 +123,7 @@ node *reverse_list(node *head) {
   node* current = NULL;
   node* after = NULL;
   while(current! = NULL){
-    neafterxt=current->after;
+    after = current->after;
     current->after = prev;
     prev = current;
     current = after;
