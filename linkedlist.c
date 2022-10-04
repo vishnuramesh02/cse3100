@@ -121,7 +121,7 @@ node *delete_node(node *head, int v) {
   else{
       prev->next = temp->next;
   }
-  free(temp)
+  free(temp);
   return head;
 }
 
