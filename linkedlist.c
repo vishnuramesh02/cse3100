@@ -1,4 +1,4 @@
-// Linked list demo program in CSE 3100
+/// Linked list demo program in CSE 3100
 // The APIs may not be the best
 
 #include <stdio.h>
@@ -106,8 +106,22 @@ void print_list_details(node *head) {
 // functions that have not been implemented
 
 node *delete_node(node *head, int v) {
-  
-  error_message(ERR_NODELETE);
+  node *temp = head;
+  node *prev;
+  while(temp != NULL && temp->v != v){
+      prev = temp;
+      temp = temp->next;    
+  }
+  if (temp == NULL){
+      error_message(ERR_NODELETE)
+  }
+  else if (temp == head){
+      head = head->next;
+  }
+  else{
+      prev->next = temp->next;
+  }
+  free(temp)
   return head;
 }
 
@@ -120,15 +134,15 @@ node *delete_node(node *head, int v) {
  */
 node *reverse_list(node *head) {
   node* prev = NULL;
-  node* current = head;
-  node* next = NULL;
-  while(current != NULL){
-    next = current->next;
-    current->next = prev;
+  node* current = NULL;
+  node* after = NULL;
+  while(current! = NULL){
+    after = current->after;
+    current->after = prev;
     prev = current;
-    current = next;
+    current = after;
   }
-  head = prev;
-  return head;
+  *head = prev;
+  return *head;
 
 }
