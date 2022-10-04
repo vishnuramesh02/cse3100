@@ -134,15 +134,15 @@ node *delete_node(node *head, int v) {
  */
 node *reverse_list(node *head) {
   node* prev = NULL;
-  node* current = NULL;
+  node* current = head;
   node* after = NULL;
-  while(current! = NULL){
+  while(current != NULL){
     after = current->after;
     current->after = prev;
     prev = current;
     current = after;
   }
-  *head = prev;
-  return *head;
+  head = prev;
+  return head;
 
 }
