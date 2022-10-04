@@ -128,7 +128,7 @@ node *reverse_list(node *head) {
     prev = current;
     current = next;
   }
-  *head = prev;
+  head = prev;
   return *head;
 
 }
