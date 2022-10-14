@@ -17,7 +17,7 @@ int main(int argc, char ** argv)
     }
 
     // TODO
-    child = fork()
+    child = fork();
       
     if (child < 0){
       perror("fork()");
@@ -38,7 +38,7 @@ int main(int argc, char ** argv)
     printf("exited=%d exitstatus=%d\n", WIFEXITED(exitStatus), WEXITSTATUS(exitStatus));
     
   
-    child = fork()
+    child = fork();
       
     if (child < 0){
       perror("fork()");
