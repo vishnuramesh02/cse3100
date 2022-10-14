@@ -31,7 +31,7 @@ typedef struct node_tag {
 //return a pointer to the created node
 node * create_node(THost host) 
 {
-  node * p = malloc(sizeoof(node));
+  node * p = malloc(sizeof(node));
   p->host = host;
   p->next = NULL;
   return p;
@@ -49,6 +49,7 @@ void add_first(node **head, node *newnode)
   else{
       newnode->next = *head;
       *head = newnode;
+}
 }
 
 
@@ -84,12 +85,13 @@ int location_match(node *head, THost host)
     int y = host.y;
     while(head != NULL){
       if (head -> host.x == x && head->host.y == y){
-        return 1
+        return 1;
         }
       else{
         head = head -> next;
       }
    return 0;
+}
 }
 
 
@@ -261,3 +263,4 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+
