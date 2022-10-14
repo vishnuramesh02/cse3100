@@ -21,18 +21,18 @@ int main(int argc, char ** argv)
       
     if (child < 0){
       perror("fork()");
-      exit[1];
+      exit(1);
     }
     
     if (child == 0){
-      excelp(argv[1], argv[2], NULL);
+      execlp(argv[1], argv[2], NULL);
       perror("execlp()");
-      exit[1];
+      exit(1);
     }
-    int temp = waitpid(child, exitStatus, 0);
+    int temp = waitpid(child, &exitStatus, 0);
     if (temp < 0){
       perror("waitpid()");
-      exit[1];
+      exit(1);
     }
   
     printf("exited=%d exitstatus=%d\n", WIFEXITED(exitStatus), WEXITSTATUS(exitStatus));
@@ -42,18 +42,18 @@ int main(int argc, char ** argv)
       
     if (child < 0){
       perror("fork()");
-      exit[1];
+      exit(1);
     }
     
     if (child == 0){
       execvp(argv[3], &argv[3]);
       perror("execvp()");
-      exit[1];
+      exit(1);
     }
-    temp = waitpid(child, exitStatus, 0);
+    temp = waitpid(child, &exitStatus, 0);
     if (temp < 0){
       perror("waitpid()");
-      exit[1];
+      exit(1);
     }
   
     printf("exited=%d exitstatus=%d\n", WIFEXITED(exitStatus), WEXITSTATUS(exitStatus));
