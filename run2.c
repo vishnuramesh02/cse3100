@@ -25,7 +25,7 @@ int main(int argc, char ** argv)
     }
     
     if (child == 0){
-      execlp(argv[1], argv[2], NULL);
+      execlp(argv[1], argv[1], argv[2], NULL);
       perror("execlp()");
       exit(1);
     }
