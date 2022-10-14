@@ -154,12 +154,7 @@ int one_round(THost *hosts, int m, node *p_arr[], int n_arr, int k, int T)
 
 	//TODO: fill in code below
     //reset all linked lists
-  for(int i = 0; i < m; i++){
-    remove_all(&(p_arr[i]));
-  }
-
-
-	for(int i = 0; i < m; i++)
+for(int i = 0; i < m; i++)
 	{
 		int r = rand() % 4;
 		//finish the follow code
@@ -167,14 +162,14 @@ int one_round(THost *hosts, int m, node *p_arr[], int n_arr, int k, int T)
 		//TODO: update locations for all hosts
 		switch(r)
 		{
-			case 0: 
-        if(hosts[i].y + 1 > k){
-          hosts[i].y *= -1;
-        }
-        else{
-          hosts[i].y++;
-        }
-        break;
+			case 0:
+				if(hosts[i].y + 1 > k){
+					hosts[i].y *= -1;
+				}
+				else{
+					hosts[i].y++;
+				}
+				break;
 			case 1:
 				if(hosts[i].x + 1 > k){
 					hosts[i].x *= -1;
@@ -183,7 +178,7 @@ int one_round(THost *hosts, int m, node *p_arr[], int n_arr, int k, int T)
 					hosts[i].x++;
 				}
 				break;
-		  case 2: 
+			case 2: 
 				if(hosts[i].y - 1 < -k){
 					hosts[i].y *= -1;
 				}
@@ -200,7 +195,6 @@ int one_round(THost *hosts, int m, node *p_arr[], int n_arr, int k, int T)
 				}
 				break;
 		}
-
 		//buid linked list for I hosts
 		if(hosts[i].type == I)
 		{
