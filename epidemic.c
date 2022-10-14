@@ -9,7 +9,7 @@ enum TYPE {S, I, R};
 //this integer should be unique for every x, y pair in your grid
 int idx(int x, int y, int k)
 {
-	int index = (x+k) + (y+k)*(2*k + 1);
+	int index = (x + k) + (y + k) * (2 * k + 1);
 	return index;
 }
 
@@ -58,7 +58,7 @@ void add_first(node **head, node *newnode)
 //return a pointer to the removed content
 node * remove_first(node **head) 
 {
-	node *p;
+	node *p = NULL;
 	p = (*head);
 	if((*head) != NULL){
 		(*head) = (*head)->next;
