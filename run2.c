@@ -21,7 +21,7 @@ int main(int argc, char ** argv)
       
     if (child < 0){
       perror("fork()");
-      exit(1);
+      exit(EXIT_FAILURE);
     }
     
     if (child == 0){
@@ -42,7 +42,7 @@ int main(int argc, char ** argv)
       
     if (child < 0){
       perror("fork()");
-      exit(1);
+      exit(EXIT_FAILURE);
     }
     
     if (child == 0){
