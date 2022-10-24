@@ -43,12 +43,12 @@ void read_file_to_array(char *filename)
 //Efficiency is needed to pass test cases in limited time
 int in_dict(char *word)
 {
-	int middle;
+
 	int left = 0;
 	int right = 60000;
 	int i = right - left;
+	int middle = (left + right) / 2;
 	while (i > 0) {
-		middle = (left + right) / 2;
 		if (strcmp(word, words[middle]) == 0) {
 			return 1;
 		}
@@ -63,7 +63,6 @@ int in_dict(char *word)
 	}
 	return 0;
 }
-
 //TODO// //
 //Use key and shift to decrypt the encrypted message
 //len is the l of the encrypted message
