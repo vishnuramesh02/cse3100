@@ -125,12 +125,10 @@ void search(const int *encrypted, int len, char *message)
 //return number of bytes read
 int read_encrypted(char *filename, int *encrypted)
 {
-
-
-
-
-
-
+    int file = open(filename, O_RDONLY);
+    int bytes = read(file, encrypted, MAX);
+    close(f);
+    return bytes;
 }
 
 //Do not change the main() function
