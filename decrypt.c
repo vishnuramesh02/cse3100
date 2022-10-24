@@ -44,7 +44,7 @@ void read_file_to_array(char *filename)
 int in_dict(char *word)
 {
     int higher = 0;
-    int lower = 60000;
+    int lower = 59999;
     int mid = 0;
     int x = lower - higher;
     while (x > 0){
