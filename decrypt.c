@@ -46,7 +46,7 @@ int in_dict(char *word)
     int higher = 0;
     int lower = 60000;
     int mid = 0;
-    int x = lower - higher
+    int x = lower - higher;
     while (x > 0){
         mid = (higher + lower) / 2;
         if (strcmp(word, words[mid]) == 0) {
