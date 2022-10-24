@@ -87,7 +87,7 @@ int message_score(const char *msg)
     int score = 0;
     char word[MAX];
     strcpy(word, msg);
-    char * test = strtok(string, " ");
+    char * test = strtok(word, " ");
     while (test){
         if (in_dict(test)){
             score++;
@@ -127,7 +127,7 @@ int read_encrypted(char *filename, int *encrypted)
 {
     int file = open(filename, O_RDONLY);
     int bytes = read(file, encrypted, MAX);
-    close(f);
+    close(file);
     return bytes;
 }
 
