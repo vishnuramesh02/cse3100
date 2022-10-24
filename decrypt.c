@@ -44,21 +44,21 @@ void read_file_to_array(char *filename)
 int in_dict(char *word)
 {
 	int middle;
-	int higher = 0;
-	int lower = 60000;
-	int i = lower - higher;
+	int left = 0;
+	int right = 60000;
+	int i = right - left;
 	while (i > 0) {
-		middle = (higher + lower) / 2;
+		middle = (left + right) / 2;
 		if (strcmp(word, words[middle]) == 0) {
 			return 1;
 		}
 		else if (strcmp(word, words[middle]) < 0) {
-			lower = middle - 1;
-			i = lower - higher;
+			right = middle - 1;
+			i = right - left;
 		}
 		else if (strcmp(word, words[middle]) > 0) {
-			higher = middle + 1;
-			i = lower - higher;
+			left = middle + 1;
+			i = right - left;
 		}
 	}
 	return 0;
