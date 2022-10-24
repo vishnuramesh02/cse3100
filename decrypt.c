@@ -84,16 +84,18 @@ void decryption(unsigned char key, unsigned char shift, const int *encrypted, in
 //the score is used to determine whether msg is the original message
 int message_score(const char *msg)
 {
-
-
-
-
-
-
-
-
+    int score = 0;
+    char word[MAX];
+    strcpy(word, msg);
+    char * test = strtok(string, " ");
+    while (test){
+        if (in_dict(test)){
+            score++;
+        }
+        test = strtok(NULL, " ");
+    }
+    return score;
 }
-
 //search using all the (key, shift) combinations
 //to find the original message
 //result is saved in message
