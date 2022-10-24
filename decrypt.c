@@ -43,25 +43,25 @@ void read_file_to_array(char *filename)
 //Efficiency is needed to pass test cases in limited time
 int in_dict(char *word)
 {
-    int higher = 0;
-    int lower = 60000;
-    int middle;
-    int i = lower - higher;
-    while (i > 0) {
-        middle = (higher + lower) / 2;
-        if (strcmp(word, words[middle]) == 0) {
-            return 1;
-        }
-        else if (strcmp(word, words[middle]) < 0) {
-            lower = middle - 1;
-            i = lower - higher;
-        }
-        else if (strcmp(word, words[middle]) > 0) { 
-            higher = middle + 1;
-            i = lower - higher;
-        }
-    }
-    return 0;
+	int middle;
+	int higher = 0;
+	int lower = 60000;
+	int i = lower - higher;
+	while (i > 0) {
+		middle = (higher + lower) / 2;
+		if (strcmp(word, words[middle]) == 0) {
+			return 1;
+		}
+		else if (strcmp(word, words[middle]) < 0) {
+			lower = middle - 1;
+			i = lower - higher;
+		}
+		else if (strcmp(word, words[middle]) > 0) {
+			higher = middle + 1;
+			i = lower - higher;
+		}
+	}
+	return 0;
 }
 
 //TODO// //
@@ -72,10 +72,10 @@ int in_dict(char *word)
 
 void decryption(unsigned char key, unsigned char shift, const int *encrypted, int len, char *decrypted)
 {
-    int i = 0;
-    while(encrypted[i] != 0){
+	int i = 0;
+	while(encrypted[i] != 0){
 		decrypted[i] = (char)((encrypted[i] ^ key) >> shift);
-        i++;
+		i++;
     }
 }
 
@@ -85,17 +85,17 @@ void decryption(unsigned char key, unsigned char shift, const int *encrypted, in
 int message_score(const char *msg)
 {
     //iterate through msg and if in_dict(msg[i]) increase score by 1
-    int score = 0;
-    char word[MAX];
-    strcpy(word, msg);
-    char * test = strtok(word, " ");
-    while (test) {
-        if (in_dict(test)) {
-            score ++;
-        }
-        test = strtok(NULL, " ");
-    }
-    return score;
+	int score = 0;
+	char word[MAX];
+	strcpy(word, msg);
+	char * test = strtok(word, " ");
+	while (test) {
+		if (in_dict(test)) {
+			score ++;
+		}
+		test = strtok(NULL, " ");
+	}
+	return score;
 }
 
 //search using all the (key, shift) combinations
@@ -104,14 +104,12 @@ int message_score(const char *msg)
 void search(const int *encrypted, int len, char *message)
 {
 	char decrypted[MAX];
-
-    int max_score = 0;
-    strcpy(message, "");
-    for(unsigned char k = 0; k < 255; k++)
-    {
-        for(unsigned char shift = 0; shift <= 24; shift++)
-        {
-            decryption(k, shift, encrypted, len, decrypted);
+	int max_score = 0;
+	strcpy(message, "");
+	for(unsigned char k = 0; k < 255; k++){
+		for(unsigned char shift = 0; shift <= 24; shift++)
+		{
+			decryption(k, shift, encrypted, len, decrypted);
 			int score = message_score(decrypted);
 			if(score > max_score)
 			{	
@@ -127,10 +125,10 @@ void search(const int *encrypted, int len, char *message)
 //return number of bytes read
 int read_encrypted(char *filename, int *encrypted)
 {
-    int file = open(filename, O_RDONLY);
-    int bytes = read(file, encrypted, MAX);
-    close(file);
-    return bytes;
+	int file = open(filename, O_RDONLY);
+	int bytes = read(file, encrypted, MAX);
+	close(file);
+	return bytes;
 
 }
 
