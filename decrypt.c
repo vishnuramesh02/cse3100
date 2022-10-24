@@ -47,8 +47,9 @@ int in_dict(char *word)
 	int left = 0;
 	int right = 60000;
 	int i = right - left;
-	int middle = (left + right) / 2;
+	int middle;
 	while (i > 0) {
+		middle = (left + right) / 2;
 		if (strcmp(word, words[middle]) == 0) {
 			return 1;
 		}
